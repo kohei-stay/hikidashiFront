@@ -59,4 +59,4 @@ jobs:
           app-name: 'tech0-gen-7-step4-studentwebapp-pos-17'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_312B33F635DA413FB5B4378C836CF8D9 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_832F2BF30BFD42E6BA76EE523EAE0CA1 }}
