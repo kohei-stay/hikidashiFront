@@ -123,6 +123,7 @@ jobs:
         with:
           app-name: 'tech0-gen-7-step4-studentwebapp-pos-17'
           slot-name: 'Production'
+<<<<<<< HEAD
           package: ./deploy
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1A710CC617444BFD8EA05FB7AD767D4B }}
       # このステップでは、アプリケーションをAzure Web Appにデプロイします。
@@ -131,3 +132,7 @@ jobs:
       # 'slot-name:'はデプロイ先のスロットを指定します（ここでは'Production'）。
       # 'package:'はデプロイするファイルのパスを指定します。
       # 'publish-profile:'はAzureの公開プロファイルを指定します。これはGitHubのシークレットとして保存されています。
+=======
+          package: .
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1A710CC617444BFD8EA05FB7AD767D4B }}
+>>>>>>> c7746e49053fc11f25742ba1a3ad3c94a8225aa4
