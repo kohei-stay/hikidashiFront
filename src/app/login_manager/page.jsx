@@ -12,7 +12,7 @@ export default function LoginManagerPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    
+
     try {
       // バックエンドにリクエストを送信
       const response = await fetch('http://localhost:5000/api/login-manager', {
