@@ -8,7 +8,7 @@
 # これらのコメントは、Azure Web Apps Deployアクションとその他のAzure用GitHub Actionsに関するドキュメントへのリンクを提供しています。
 # 開発者がより詳細な情報を必要とする場合に参照できます。
 
-name: Build and deploy Node.js app to Azure Web App - tech0-gen-7-step4-studentwebapp-pos-test1
+name: Build and deploy Node.js app to Azure Web App - tech0-gen-7-step4-studentwebapp-pos-17
 # 'name:'はこのワークフローの名前を定義します。
 # この名前はGitHubのActionsタブに表示され、ワークフローを識別するのに役立ちます。
 # ここでは、Node.jsアプリをAzure Web Appにビルドしてデプロイすることを示しています。
@@ -114,17 +114,17 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-        
+
       # このステップでは、ダウンロードしたZIPファイルを解凍します。
       
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'tech0-gen-7-step3-studentwebapp-pos-test1'
-          slot-name: 'Production'
+          app-name: 'tech0-gen-7-step4-studentwebapp-pos-17'
+          slot-name: 'production'
           package: ./deploy
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B5FF778D8CC84A238D26EFB1622333E5 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1A710CC617444BFD8EA05FB7AD767D4B }}
       # このステップでは、アプリケーションをAzure Web Appにデプロイします。
       # 'uses: azure/webapps-deploy@v3'は、Azure Web Appへのデプロイを行うアクションを使用することを指定します。
       # 'app-name:'はデプロイ先のAzure Web Appの名前を指定します。
