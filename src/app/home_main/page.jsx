@@ -1,7 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import React from "react";
 
+const PdfCard = () => {
+  return (
+    <div className="border rounded-lg shadow-lg p-4 w-full h-full flex-grow">
+      <iframe
+        src="/documents/document1.pdf"
+        width="100%"
+        height="400px"
+        title="PDF Document"
+        className="rounded-lg"
+      />
+    </div>
+  );
+};
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("メイン"); // 初期タブを「メイン」に設定
 
@@ -208,24 +222,24 @@ export default function HomePage() {
           {activeTab === "担当者" && (
             <div>
               {/* 担当者タブのコンテンツ */}
-              <p>担当者タブのコンテンツです。</p>
+              <p>担当者検索</p>
               {/* 部署を選択 */}
               <div className="grid grid-cols-3 gap-6">
                 <div>
                   <select className="border border-gray-300 p-2 w-full h-10">
-                    <option value="">部署を選択してください</option>
-                    <option value="product1">部署１</option>
-                    <option value="product2">部署２</option>
-                    <option value="product3">部署３</option>
+                    <option value="">部署</option>
+                    <option value="department1">部署１</option>
+                    <option value="department2">部署２</option>
+                    <option value="department3">部署３</option>
                   </select>
                 </div>
                 {/* 名前を選択 */}
                 <div>
                   <select className="border border-gray-300 p-2 w-full h-10">
-                    <option value="">担当者を選択してください</option>
-                    <option value="project1">担当者１</option>
-                    <option value="project2">担当者２</option>
-                    <option value="project3">担当者３</option>
+                    <option value="">担当者</option>
+                    <option value="responsible1">担当者１</option>
+                    <option value="responsible2">担当者２</option>
+                    <option value="responsible3">担当者３</option>
                   </select>
                 </div>
 
@@ -236,18 +250,90 @@ export default function HomePage() {
                   </button>
                 </div>
               </div>
+              {/* PDFデータをカード形式で表示 */}
+              <div className="grid grid-cols-4 gap-6 mt-6">
+                <PdfCard pdfUrl="/path/to/pdf1.pdf" />
+                <PdfCard pdfUrl="/path/to/pdf2.pdf" />
+                <PdfCard pdfUrl="/path/to/pdf3.pdf" />
+              </div>
             </div>
           )}
           {activeTab === "商材" && (
             <div>
               {/* 商材タブのコンテンツ */}
-              <p>商材タブのコンテンツです。</p>
+              <p>商材検索</p>
+              {/* 大分類を選択 */}
+              <div className="grid grid-cols-3 gap-6">
+                <div>
+                  <select className="border border-gray-300 p-2 w-full h-10">
+                    <option value="">大分類</option>
+                    <option value="product1">大分類１</option>
+                    <option value="product2">大分類２</option>
+                    <option value="product3">大分類３</option>
+                  </select>
+                </div>
+                {/* 小分類を選択 */}
+                <div>
+                  <select className="border border-gray-300 p-2 w-full h-10">
+                    <option value="">小分類</option>
+                    <option value="project1">小分類１</option>
+                    <option value="project2">小分類２</option>
+                    <option value="project3">小分類３</option>
+                  </select>
+                </div>
+
+                {/* 担当者検索ボタン */}
+                <div className="flex justify-end mt-4">
+                  <button className="bg-sky-300 text-black font-bold p-2 rounded shadow hover:bg-sky-400">
+                    検索
+                  </button>
+                </div>
+              </div>
+              {/* PDFデータをカード形式で表示 */}
+              <div className="grid grid-cols-4 gap-6 mt-6">
+                <PdfCard pdfUrl="/path/to/pdf1.pdf" />
+                <PdfCard pdfUrl="/path/to/pdf2.pdf" />
+                <PdfCard pdfUrl="/path/to/pdf3.pdf" />
+              </div>
             </div>
           )}
           {activeTab === "プロジェクト" && (
             <div>
               {/* プロジェクトタブのコンテンツ */}
-              <p>プロジェクトタブのコンテンツです。</p>
+              <p>プロジェクト検索</p>
+              {/* プロジェクトを選択 */}
+              <div className="grid grid-cols-3 gap-6">
+                <div>
+                  <select className="border border-gray-300 p-2 w-full h-10">
+                    <option value="">大分類</option>
+                    <option value="product1">大分類１</option>
+                    <option value="product2">大分類２</option>
+                    <option value="product3">大分類３</option>
+                  </select>
+                </div>
+                {/* 小分類を選択 */}
+                <div>
+                  <select className="border border-gray-300 p-2 w-full h-10">
+                    <option value="">小分類</option>
+                    <option value="project1">小分類１</option>
+                    <option value="project2">小分類２</option>
+                    <option value="project3">小分類３</option>
+                  </select>
+                </div>
+
+                {/* 担当者検索ボタン */}
+                <div className="flex justify-end mt-4">
+                  <button className="bg-sky-300 text-black font-bold p-2 rounded shadow hover:bg-sky-400">
+                    検索
+                  </button>
+                </div>
+              </div>
+              {/* PDFデータをカード形式で表示 */}
+              <div className="grid grid-cols-4 gap-6 mt-6">
+                <PdfCard pdfUrl="/path/to/pdf1.pdf" />
+                <PdfCard pdfUrl="/path/to/pdf2.pdf" />
+                <PdfCard pdfUrl="/path/to/pdf3.pdf" />
+              </div>
             </div>
           )}
         </div>
