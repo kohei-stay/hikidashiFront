@@ -1,21 +1,59 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
+import { useRouter } from "next/navigation";
+
+const data = {
+  pdfUrls: ["/path/to/pdf1.pdf", "/path/to/pdf2.pdf", "/path/to/pdf3.pdf"],
+  products: [
+    { value: "product1", label: "商材１" },
+    { value: "product2", label: "商材２" },
+    { value: "product3", label: "商材３" },
+  ],
+  departments: [
+    { value: "department1", label: "部署１" },
+    { value: "department2", label: "部署２" },
+    { value: "department3", label: "部署３" },
+  ],
+  responsibles: [
+    { value: "responsible1", label: "担当者１" },
+    { value: "responsible2", label: "担当者２" },
+    { value: "responsible3", label: "担当者３" },
+  ],
+};
 
 const PdfCard = () => {
+  const [isClient, setIsClient] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const handleClick = () => {
+    if (isClient) {
+      router.push("/details");
+    }
+  };
+
   return (
-    <div className="border rounded-lg shadow-lg p-4 w-full h-full flex-grow">
+    <div
+      className="border rounded-lg shadow-lg p-4 w-full h-full flex-grow cursor-pointer"
+      onClick={handleClick}
+    >
       <iframe
         src="/documents/document1.pdf"
         width="100%"
         height="400px"
         title="PDF Document"
         className="rounded-lg"
+        style={{ pointerEvents: "none" }}
       />
     </div>
   );
 };
+
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState("メイン"); // 初期タブを「メイン」に設定
 
@@ -88,9 +126,11 @@ export default function HomePage() {
                   <label className="block mb-1">商材</label>
                   <select className="border border-gray-300 p-2 w-full h-10">
                     <option value="">選択してください</option>
-                    <option value="product1">商材１</option>
-                    <option value="product2">商材２</option>
-                    <option value="product3">商材３</option>
+                    {data.products.map((product) => (
+                      <option key={product.value} value={product.value}>
+                        {product.label}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 <div>
@@ -228,23 +268,27 @@ export default function HomePage() {
                 <div>
                   <select className="border border-gray-300 p-2 w-full h-10">
                     <option value="">部署</option>
-                    <option value="department1">部署１</option>
-                    <option value="department2">部署２</option>
-                    <option value="department3">部署３</option>
+                    {data.departments.map((department) => (
+                      <option key={department.value} value={department.value}>
+                        {department.label}
+                      </option>
+                    ))}
                   </select>
                 </div>
                 {/* 名前を選択 */}
                 <div>
                   <select className="border border-gray-300 p-2 w-full h-10">
                     <option value="">担当者</option>
-                    <option value="responsible1">担当者１</option>
-                    <option value="responsible2">担当者２</option>
-                    <option value="responsible3">担当者３</option>
+                    {data.responsibles.map((responsible) => (
+                      <option key={responsible.value} value={responsible.value}>
+                        {responsible.label}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
-                {/* 担当者検索ボタン */}
-                <div className="flex justify-end mt-4">
+                {/* 検索ボタン */}
+                <div className="flex justify-first">
                   <button className="bg-sky-300 text-black font-bold p-2 rounded shadow hover:bg-sky-400">
                     検索
                   </button>
@@ -267,23 +311,23 @@ export default function HomePage() {
                 <div>
                   <select className="border border-gray-300 p-2 w-full h-10">
                     <option value="">大分類</option>
-                    <option value="product1">大分類１</option>
-                    <option value="product2">大分類２</option>
-                    <option value="product3">大分類３</option>
+                    <option value="category1">大分類１</option>
+                    <option value="category2">大分類２</option>
+                    <option value="category3">大分類３</option>
                   </select>
                 </div>
                 {/* 小分類を選択 */}
                 <div>
                   <select className="border border-gray-300 p-2 w-full h-10">
                     <option value="">小分類</option>
-                    <option value="project1">小分類１</option>
-                    <option value="project2">小分類２</option>
-                    <option value="project3">小分類３</option>
+                    <option value="subcategory1">小分類１</option>
+                    <option value="subcategory2">小分類２</option>
+                    <option value="subcategory3">小分類３</option>
                   </select>
                 </div>
 
-                {/* 担当者検索ボタン */}
-                <div className="flex justify-end mt-4">
+                {/* 検索ボタン */}
+                <div className="flex justify-first">
                   <button className="bg-sky-300 text-black font-bold p-2 rounded shadow hover:bg-sky-400">
                     検索
                   </button>
@@ -321,8 +365,8 @@ export default function HomePage() {
                   </select>
                 </div>
 
-                {/* 担当者検索ボタン */}
-                <div className="flex justify-end mt-4">
+                {/* 検索ボタン */}
+                <div className="flex justify-first">
                   <button className="bg-sky-300 text-black font-bold p-2 rounded shadow hover:bg-sky-400">
                     検索
                   </button>
