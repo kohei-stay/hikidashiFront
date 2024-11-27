@@ -23,7 +23,7 @@ export default function LoginPage() {
         {/* ログインボタン */}
         <Link href="/login_user">
           <button className="w-full mb-4 bg-sky-300 text-black font-bold py-2 px-4 rounded shadow-lg hover:bg-sky-400 transition duration-200">
-            ログイン
+            ユーザーログイン
           </button>
         </Link>
 
