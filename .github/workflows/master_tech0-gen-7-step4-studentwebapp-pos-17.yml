@@ -38,7 +38,8 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
-          node-version: ‘20.2.0’
+          node-version: '20.x'
+
       # このステップはNode.js環境をセットアップします。
       # ‘uses: actions/setup-node@v3’は、Node.jsをセットアップするアクションを使用することを指定します。
       # ‘with:’セクションでは、使用するNode.jsのバージョンを‘20.x’と指定しています。これは20.xシリーズの最新バージョンを使用することを意味します。
