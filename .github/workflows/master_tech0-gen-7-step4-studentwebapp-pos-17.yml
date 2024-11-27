@@ -115,6 +115,13 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
+        
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B2E1F8E4E81A4C1D9B620416DDB9E9A2 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_611E86864E3248A78A2485EA7D67611C }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5388E4EB88244C34A9D935FC3A153430 }}
 
       # このステップでは、ダウンロードしたZIPファイルを解凍します。
       
@@ -125,6 +132,7 @@ jobs:
           app-name: ‘tech0-gen-7-step4-studentwebapp-pos-17’
           slot-name: ‘production’
           package: ./deploy
+      
       # このステップでは、アプリケーションをAzure Web Appにデプロイします。
       # ‘uses: azure/webapps-deploy@v3’は、Azure Web Appへのデプロイを行うアクションを使用することを指定します。
       # ‘app-name:’はデプロイ先のAzure Web Appの名前を指定します。
